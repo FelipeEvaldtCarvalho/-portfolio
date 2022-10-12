@@ -1,86 +1,110 @@
 <template>
   <section id="contact">
-      <div class="text">
-                <div class="row">
-                    <h1>Entre em Contato</h1>
-                    <div class="line"></div>
-                </div>
-                <div class="content">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, minus!
-                    </p>
-                    <button type="button" class="btn" @click="showModal">Diga olá!</button>
-                </div>
-            </div>
-            <ModalComponent 
-                v-show="isModalVisible"
-                @close="closeModal"
-            />
-            
+    <div class="text">
+      <div class="row">
+        <h1>Entre em Contato</h1>
+        <div class="line"></div>
+      </div>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, minus!
+        </p>
+        <button type="button" class="btn" @click="showModal">Diga olá!</button>
+      </div>
+    </div>
+    <ModalComponent v-show="isModalVisible" @close="closeModal" />
   </section>
 </template>
 
 <script>
-import ModalComponent from "./ModalComponent.vue"
+import ModalComponent from "./ModalComponent.vue";
 
-export default{
-    name: "ContactComponent",
-    components: {
-        ModalComponent,
+export default {
+  name: "ContactComponent",
+  components: {
+    ModalComponent,
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
     },
-    data(){
-        return{
-            isModalVisible: false,
-        }
+    closeModal() {
+      this.isModalVisible = false;
     },
-    methods:{
-        showModal(){
-            this.isModalVisible = true;
-        },
-        closeModal(){
-            this.isModalVisible = false;
-        },
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
-section{
-    height: calc(100vh -100px);
-    padding: 150px 190px;
+section {
+  height: calc(100vh -100px);
+  padding: 150px 190px;
 }
-.row{
-    display: flex;
-    width: 65%;
-    align-items: center;
-    justify-content: space-between;
+.row {
+  display: flex;
+  width: 65%;
+  align-items: center;
+  justify-content: space-between;
 }
-p{
-font-family: 'Play', sans-serif;
-font-size: 25px;
-color: white;
-max-width: 65%;
+p {
+  font-family: "Play", sans-serif;
+  font-size: 25px;
+  color: white;
+  max-width: 65%;
 }
-h1{
-    font-family: 'Montserrat', sans-serif;
-    color: #4cd7a9;
-    font-size: 30px;
+h1 {
+  font-family: "Montserrat", sans-serif;
+  color: #4cd7a9;
+  font-size: 30px;
 }
-.line{
-    width: 55%;
-    height: 2px;
-    border-top: 2px solid #4cd7a9;;
-    margin: 0;
+.line {
+  width: 55%;
+  height: 2px;
+  border-top: 2px solid #4cd7a9;
+  margin: 0;
 }
-.content{
-    display: flex;
-    flex-direction: column;
-    padding: 15px 0;
-    margin: 15px;
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+  margin: 15px;
 }
-.btn{
-    width: 150px;
-    margin: 80px 0;
-    margin-left: 25%;
+.btn {
+  width: 150px;
+  margin: 80px 0;
+  margin-left: 25%;
+}
+@media screen and (max-width: 480px) {
+  section {
+    height: auto;
+    padding: 0;
+    margin: 20% 6%;
+  }
+  .row {
+    width: 100%;
+  }
+  p {
+    font-size: 1.2rem;
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+  .line {
+    width: 15%;
+  }
+  .content {
+    padding: 0;
+    margin: 2rem 0;
+  }
+  .btn {
+    width: 80%;
+    margin: 5rem auto;
+  }
 }
 </style>
