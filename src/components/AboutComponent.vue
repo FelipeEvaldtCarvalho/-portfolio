@@ -22,8 +22,8 @@
     <div class="logos">
       <div class="rowlogos">
         <img src="imgs/html.png" alt="html" height="80" />
-        <img src="imgs/css.png" alt="css" height="92" />
-        <img src="imgs/js.png" alt="javascript" height="90" />
+        <img src="imgs/css.png" alt="css" height="80" />
+        <img src="imgs/js.png" alt="javascript" height="80" />
         <img src="imgs/vue.png" alt="vuejs" height="80" />
       </div>
       <div class="rowlogos">
@@ -59,7 +59,7 @@ section {
   padding-bottom: 0;
 }
 .line {
-  width: 65%;
+  flex-grow: 1;
   height: 2px;
   border-top: 2px solid #4cd7a9;
   margin: 0;
@@ -69,6 +69,7 @@ section {
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 .logos {
   padding: 75px 0;
@@ -154,6 +155,54 @@ section {
 .rowlogos img:hover {
   filter: grayscale(1);
 }
+@media screen and (max-width: 950px) and (min-width: 731px) {
+  section {
+    margin: 25% 12%;
+    padding: 0;
+  }
+  .container {
+    max-height: initial;
+    margin: 3rem 0;
+  }
+  .logos {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 820px) and (min-width: 481px) {
+  section {
+    margin: 0 12%;
+    padding: 0;
+  }
+  .container {
+    max-height: initial;
+    margin: 3rem 0;
+    flex-direction: column;
+  }
+  .text {
+    padding: 0;
+    width: 100%;
+    gap: 1rem;
+  }
+  p {
+    margin: 2rem 0;
+  }
+  .image {
+    position: relative;
+    top: initial;
+    margin: 3rem auto;
+  }
+  .logos {
+    padding: 0;
+  }
+  .rowlogos {
+    gap: 10px;
+    padding: 0;
+    margin-bottom: 25px;
+  }
+  .rowlogos img {
+    height: 60px;
+  }
+}
 @media screen and (max-width: 480px) {
   section {
     margin: 0 6%;
@@ -180,14 +229,9 @@ section {
     margin: 0;
     font-size: 1.2rem;
   }
-  .line {
-    width: 50%;
-  }
   .image {
     position: relative;
     top: initial;
-    width: 270px;
-    height: 320px;
     margin: 3rem auto;
   }
   .logos {

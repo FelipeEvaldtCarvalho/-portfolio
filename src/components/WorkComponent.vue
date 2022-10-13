@@ -106,13 +106,13 @@ p {
 h1 {
   font-family: "Montserrat", sans-serif;
   color: #4cd7a9;
-  font-size: 30px;
+  font-size: 2rem;
 }
 section {
   padding: 100px 190px;
 }
 .line {
-  width: 55%;
+  flex-grow: 1;
   height: 2px;
   border-top: 2px solid #4cd7a9;
   margin: 0;
@@ -122,6 +122,7 @@ section {
   width: 65%;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 .content {
   display: flex;
@@ -178,6 +179,30 @@ section {
 }
 .icons a:hover {
   color: #4cd7a9;
+}
+@media screen and (max-width: 820px) and (min-width: 481px) {
+  section {
+    padding: 0;
+    margin: 20% 12%;
+  }
+  .text {
+    padding: 0;
+    margin-bottom: 12%;
+  }
+  .row {
+    width: 100%;
+  }
+  .projects {
+    padding-top: 3rem;
+    flex-direction: column;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 2rem;
+  }
 }
 @media screen and (max-width: 480px) {
   section {

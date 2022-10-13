@@ -79,12 +79,22 @@ ion-icon {
   left: 50%;
   color: gray;
 }
+@media screen and (max-width: 820px) and (min-width: 481px) {
+  .container {
+    margin: 0 12%;
+    padding: 0;
+  }
+  h2 {
+    font-size: 2.7rem;
+    letter-spacing: 5px;
+  }
+  h1 {
+    font-size: 3.8rem;
+    letter-spacing: 10px;
+  }
+}
 @media screen and (max-width: 480px) {
   .container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin: 0 6%;
     padding: 0;
   }

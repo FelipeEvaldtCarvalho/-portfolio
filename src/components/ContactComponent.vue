@@ -50,6 +50,7 @@ section {
   width: 65%;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 p {
   font-family: "Play", sans-serif;
@@ -63,7 +64,7 @@ h1 {
   font-size: 30px;
 }
 .line {
-  width: 55%;
+  flex-grow: 1;
   height: 2px;
   border-top: 2px solid #4cd7a9;
   margin: 0;
@@ -78,6 +79,24 @@ h1 {
   width: 150px;
   margin: 80px 0;
   margin-left: 25%;
+}
+@media screen and (max-width: 820px) and (min-width: 481px) {
+  section {
+    height: auto;
+    padding: 0;
+    margin: 20% 12%;
+  }
+  .row {
+    width: 100%;
+  }
+  .content {
+    padding: 0;
+    margin: 2rem 0;
+  }
+  .btn {
+    width: 80%;
+    margin: 5rem auto;
+  }
 }
 @media screen and (max-width: 480px) {
   section {
@@ -94,9 +113,6 @@ h1 {
   }
   h1 {
     font-size: 1.6rem;
-  }
-  .line {
-    width: 15%;
   }
   .content {
     padding: 0;

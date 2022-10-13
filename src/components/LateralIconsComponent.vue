@@ -56,6 +56,17 @@ li a :hover {
   position: relative;
   top: -5px;
 }
+@media screen and (max-width: 820px) and (min-width: 481px) {
+  .line {
+    height: 60px;
+  }
+  ul {
+    left: 2%;
+    height: auto;
+    width: auto;
+    gap: 1rem;
+  }
+}
 @media screen and (max-width: 480px) {
   .line {
     display: none;

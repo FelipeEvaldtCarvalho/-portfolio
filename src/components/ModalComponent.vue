@@ -58,8 +58,8 @@ export default {
   z-index: 10000;
 }
 .modal {
-  height: 70%;
-  width: 50%;
+  height: auto;
+  width: 90%;
   border-radius: 15px;
   background-color: #242424;
   overflow-x: auto;
@@ -126,7 +126,7 @@ a {
 a:hover {
   color: tomato;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 820px) {
   .modal {
     height: auto;
     width: 90%;

@@ -141,7 +141,8 @@ nav {
   position: fixed;
   width: 100%;
 }
-@media screen and (max-width: 480px) {
+
+@media screen and (max-width: 730px) {
   .nav-links {
     display: none;
   }
@@ -176,6 +177,17 @@ nav {
     position: fixed;
     right: 10px;
     top: 10px;
+  }
+}
+@media screen and (max-width: 730px) and (min-width: 481px) {
+  li a {
+    font-size: 2rem;
+  }
+  .btn {
+    font-size: 2rem;
+  }
+  .modal-list {
+    margin-top: 100px;
   }
 }
 </style>
