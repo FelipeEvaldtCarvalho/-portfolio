@@ -41,10 +41,37 @@
         </div>
         <div class="projects">
           <div class="card">
-            <img src="imgs/1.png" alt="Projeto1" />
+            <h1 class="card-title">Blog desenvolvido com Laravel</h1>
+            <video
+              muted
+              loop
+              v-on:mouseout="this.hoverStop"
+              v-on:mouseover="this.hoverPlay"
+              id="video-blog-app"
+            >
+              <source src="videos/blog_app.mp4" />
+            </video>
+            <div class="icons">
+              <a class="disable"
+                ><ion-icon class="disable" name="link-outline"></ion-icon
+              ></a>
+              <a href="#work"><ion-icon name="logo-github"></ion-icon></a>
+            </div>
+          </div>
+          <div class="card">
+            <h1 class="card-title">Página desenvolvida com Vue Cli</h1>
+            <video
+              muted
+              loop
+              v-on:mouseout="this.hoverStop"
+              v-on:mouseover="this.hoverPlay"
+              id="video-es-project"
+            >
+              <source src="videos/es_project.mp4" />
+            </video>
             <div class="icons">
               <a
-                href="https://confident-poitras-58ad60.netlify.app/"
+                href="https://spectacular-kataifi-5015f3.netlify.app/"
                 target="blank"
                 ><ion-icon name="link-outline"></ion-icon
               ></a>
@@ -88,16 +115,41 @@
 <script>
 export default {
   name: "WorkComponent",
+  data() {
+    return {
+      test: false,
+    };
+  },
+  methods: {
+    hoverPlay(e) {
+      let id = e.target.id;
+      document.getElementById(id).play();
+    },
+    hoverStop(e) {
+      let id = e.target.id;
+      document.getElementById(id).pause();
+    },
+  },
 };
 </script>
 
 <style scoped>
+.card-title {
+  color: #4cd7a9;
+  font-size: 1.5rem;
+  width: 100%;
+  margin-bottom: 0.7rem;
+}
+video::-webkit-media-controls {
+  display: none !important;
+}
 .content a {
   font-family: "Play", sans-serif;
   font-size: 26px;
   color: #4cd7a9;
   text-decoration: none;
 }
+
 p {
   font-family: "Play", sans-serif;
   font-size: 25px;
@@ -144,25 +196,30 @@ section {
   padding-bottom: 60px;
 }
 .projects {
+  flex-wrap: wrap;
   padding-top: 50px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  width: 40%;
 }
-.card img {
+.card img,
+.card video {
   width: 100%;
   box-shadow: 0 0 5px #4cd7a9;
   border-radius: 5px;
   transition: 0.6s;
+  filter: grayscale(1);
 }
+.card video:hover,
 .card img:hover {
+  filter: grayscale(0);
   box-shadow: 0 0 15px #4cd7a9;
 }
 .icons {
@@ -180,6 +237,13 @@ section {
 .icons a:hover {
   color: #4cd7a9;
 }
+.icons .disable a {
+  color: #808080;
+}
+.icons .disable a:hover {
+  color: #808080;
+}
+
 @media screen and (max-width: 820px) and (min-width: 481px) {
   section {
     padding: 0;

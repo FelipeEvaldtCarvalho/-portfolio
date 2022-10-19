@@ -1,15 +1,13 @@
 <template>
   <section id="about">
-    <div class="container">
+    <div class="container-about">
       <div class="text">
         <div class="row">
-          <h1>Sobre mim</h1>
+          <h1>{{ about.title }}</h1>
           <div class="line"></div>
         </div>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum,
-          expedita dolores! Quia itaque quis amet placeat quam! Quaerat, aut
-          porro obcaecati harum delectus odio, vel est ab, iusto rem nihil.
+          {{ about.description }}
         </p>
       </div>
       <div class="image">
@@ -24,11 +22,9 @@
         <img src="imgs/html.png" alt="html" height="80" />
         <img src="imgs/css.png" alt="css" height="80" />
         <img src="imgs/js.png" alt="javascript" height="80" />
-        <img src="imgs/vue.png" alt="vuejs" height="80" />
       </div>
       <div class="rowlogos">
-        <img src="imgs/python.png" alt="python" height="80" />
-        <img src="imgs/dj.png" alt="django" height="80" />
+        <img src="imgs/vue.png" alt="vuejs" height="80" />
         <img src="imgs/php.png" alt="php" height="80" />
         <img src="imgs/laravel.png" alt="laravel" height="80" />
       </div>
@@ -37,17 +33,40 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "AboutComponent",
+  data() {
+    return {
+      about: {},
+    };
+  },
+  methods: {
+    getJson() {
+      axios.get("/text/text.json").then((response) => {
+        this.about = response.data.about;
+      });
+    },
+  },
+  created() {
+    this.getJson();
+  },
 };
 </script>
 
 <style scoped>
+.container-about {
+  width: 100%;
+  display: flex;
+  margin: 0 25px;
+}
 p {
   margin: 15px;
   font-family: "Play", sans-serif;
   font-size: 25px;
   color: white;
+  line-height: 1.9rem;
 }
 h1 {
   font-family: "Montserrat", sans-serif;
@@ -160,7 +179,7 @@ section {
     margin: 25% 12%;
     padding: 0;
   }
-  .container {
+  .container-about {
     max-height: initial;
     margin: 3rem 0;
   }
@@ -173,7 +192,7 @@ section {
     margin: 0 12%;
     padding: 0;
   }
-  .container {
+  .container-about {
     max-height: initial;
     margin: 3rem 0;
     flex-direction: column;
@@ -208,7 +227,7 @@ section {
     margin: 0 6%;
     padding: 0;
   }
-  .container {
+  .container-about {
     width: 100%;
     display: flex;
     max-height: initial;
@@ -228,6 +247,7 @@ section {
   p {
     margin: 0;
     font-size: 1.2rem;
+    text-align: center;
   }
   .image {
     position: relative;
