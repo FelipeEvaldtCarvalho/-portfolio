@@ -52,10 +52,12 @@
               <source src="videos/blog_app.mp4" />
             </video>
             <div class="icons">
-              <a class="disable"
-                ><ion-icon class="disable" name="link-outline"></ion-icon
+              <a class="disabled"><ion-icon name="link-outline"></ion-icon></a>
+              <a
+                href="https://github.com/FelipeEvaldtCarvalho/blog-app"
+                target="_blank"
+                ><ion-icon name="logo-github"></ion-icon
               ></a>
-              <a href="#work"><ion-icon name="logo-github"></ion-icon></a>
             </div>
           </div>
           <div class="card">
@@ -75,7 +77,11 @@
                 target="blank"
                 ><ion-icon name="link-outline"></ion-icon
               ></a>
-              <a href="#work"><ion-icon name="logo-github"></ion-icon></a>
+              <a
+                href="https://github.com/FelipeEvaldtCarvalho/es_project"
+                target="_blank"
+                ><ion-icon name="logo-github"></ion-icon
+              ></a>
             </div>
           </div>
           <div class="card">
@@ -237,13 +243,9 @@ section {
 .icons a:hover {
   color: #4cd7a9;
 }
-.icons .disable a {
+.disabled ion-icon {
   color: #808080;
 }
-.icons .disable a:hover {
-  color: #808080;
-}
-
 @media screen and (max-width: 820px) and (min-width: 481px) {
   section {
     padding: 0;
