@@ -10,19 +10,25 @@
       <form action="">
         <div class="row">
           <label for="name">Nome</label>
-          <input type="text" />
+          <input type="text" v-model="form.name" />
         </div>
         <div class="row">
           <label for="email">Email</label>
-          <input type="email" />
+          <input type="email" v-model="form.email" />
         </div>
         <div class="row">
           <label for="message">Mensagem</label>
-          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            v-model="form.msg"
+          ></textarea>
         </div>
         <div class="row-btn">
           <input
-            @click.prevent="close"
+            @click.prevent="sendEmail"
             class="btn"
             type="button"
             value="Enviar"
@@ -34,12 +40,38 @@
 </template>
 
 <script>
+import { useVuelidate } from "@vuelidate/core";
+import { required, email } from "@vuelidate/validators";
 export default {
   name: "ModalComponent",
+  data() {
+    return {
+      form: {
+        name: "",
+        email: "",
+        msg: "",
+      },
+    };
+  },
   methods: {
     close() {
       this.$emit("close");
     },
+    sendEmail() {
+      console.log(this.v$);
+    },
+  },
+  setup() {
+    return { v$: useVuelidate() };
+  },
+  validations() {
+    return {
+      form: {
+        name: { required },
+        email: { email, required },
+        msg: { required },
+      },
+    };
   },
 };
 </script>

@@ -85,29 +85,45 @@
             </div>
           </div>
           <div class="card">
-            <img src="imgs/3.png" alt="Projeto2" />
+            <h1 class="card-title">
+              Página desenvolvida com Vue Cli, consumindo API de terceiro
+            </h1>
+            <video
+              muted
+              loop
+              v-on:mouseout="this.hoverStop"
+              v-on:mouseover="this.hoverPlay"
+              id="video-wp-project"
+            >
+              <source src="videos/wp_project.mp4" />
+            </video>
             <div class="icons">
-              <a href="https://boring-jones-273a0b.netlify.app/" target="blank"
-                ><ion-icon name="link-outline"></ion-icon
-              ></a>
+              <a class="disabled"><ion-icon name="link-outline"></ion-icon></a>
               <a
-                href="https://github.com/FelipeEvaldtCarvalho/buscadorgithub"
-                target="blank"
+                href="https://github.com/FelipeEvaldtCarvalho/wp-project"
+                target="_blank"
                 ><ion-icon name="logo-github"></ion-icon
               ></a>
             </div>
           </div>
           <div class="card">
-            <img src="imgs/2.png" alt="Projeto3" />
+            <h1 class="card-title">
+              Loja desenvolvida com Laravel, Inertia e Vue3
+            </h1>
+            <video
+              muted
+              loop
+              v-on:mouseout="this.hoverStop"
+              v-on:mouseover="this.hoverPlay"
+              id="video-athena-project"
+            >
+              <source src="videos/athena.mp4" />
+            </video>
             <div class="icons">
+              <a class="disabled"><ion-icon name="link-outline"></ion-icon></a>
               <a
-                href="https://tender-wozniak-5da602.netlify.app/"
-                target="blank"
-                ><ion-icon name="link-outline"></ion-icon
-              ></a>
-              <a
-                href="https://github.com/FelipeEvaldtCarvalho/todo/"
-                target="blank"
+                href="https://github.com/FelipeEvaldtCarvalho/athena"
+                target="_blank"
                 ><ion-icon name="logo-github"></ion-icon
               ></a>
             </div>

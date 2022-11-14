@@ -7,7 +7,8 @@
       </div>
       <div class="content">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, minus!
+          Sinta-se a vontade para entrar em contato, sua mensagem será muito bem
+          vinda!
         </p>
         <button type="button" class="btn" @click="showModal">Diga olá!</button>
       </div>
@@ -26,7 +27,8 @@ export default {
   },
   data() {
     return {
-      isModalVisible: false,
+      isModalVisible: true,
+      contactTxt: null,
     };
   },
   methods: {
