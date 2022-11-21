@@ -18,9 +18,8 @@
             <span class="hoverable">Atual</span>
           </p>
           <p>
-            <span class="hoverable">Estagiário</span>
-            <span class="hoverable"> de </span>
-            <span class="hoverable">Desenvolvimento</span>
+            <span class="hoverable">Desenvolvedor</span>
+            <span class="hoverable"> Fullstack</span>
           </p>
           <p>
             <span class="hoverable">Tecnologias</span>
@@ -173,12 +172,14 @@ video::-webkit-media-controls {
 }
 
 p {
-  font-family: "Play", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 25px;
   color: white;
+  font-weight: 200;
 }
 h1 {
   font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   color: #4cd7a9;
   font-size: 2rem;
 }

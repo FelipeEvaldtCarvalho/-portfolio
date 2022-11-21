@@ -1,35 +1,41 @@
 <template>
-  <nav id="navbar">
-    <a href="#"
-      ><ion-icon class="home-icon" name="rocket-outline"></ion-icon
-    ></a>
-    <ul class="nav-links">
-      <li><a href="#about">Sobre</a></li>
-      <li><a href="#work">Trabalhos</a></li>
-      <li><a href="#contact">Contato</a></li>
-      <li><button class="btn">Resumo</button></li>
-    </ul>
-    <a class="mobile-menu" v-on:click="modalOpen = !modalOpen"
-      ><ion-icon name="menu-outline"></ion-icon
-    ></a>
-  </nav>
-  <section class="modal" v-if="modalOpen">
-    <ion-icon
-      class="close-btn"
-      name="close-outline"
-      v-on:click="modalOpen = false"
-    ></ion-icon>
-    <ul class="modal-list">
-      <li><a href="#about" v-on:click="modalOpen = false">Sobre</a></li>
-      <li><a href="#work" v-on:click="modalOpen = false">Trabalhos</a></li>
-      <li><a href="#contact" v-on:click="modalOpen = false">Contato</a></li>
-      <li>
-        <button class="btn" v-on:click="modalOpen = false">Resumo</button>
-      </li>
-    </ul>
-  </section>
+  <Transition
+    appear
+    name="nav"
+    @before-appear="navBeforeAppear"
+    @appear="navAppear"
+  >
+    <nav id="navbar">
+      <a href="#"
+        ><ion-icon class="home-icon" name="rocket-outline"></ion-icon
+      ></a>
+      <ul class="nav-links">
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#work">Trabalhos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+      <a class="mobile-menu" v-on:click="openModal"
+        ><ion-icon name="menu-outline"></ion-icon
+      ></a>
+    </nav>
+  </Transition>
+  <Transition name="modal">
+    <div class="modal" v-if="modalOpen">
+      <ion-icon
+        class="close-btn"
+        name="close-outline"
+        v-on:click="closeModal"
+      ></ion-icon>
+      <ul class="modal-list">
+        <li><a href="#about" v-on:click="closeModal">Sobre</a></li>
+        <li><a href="#work" v-on:click="closeModal">Trabalhos</a></li>
+        <li><a href="#contact" v-on:click="closeModal">Contato</a></li>
+      </ul>
+    </div>
+  </Transition>
 </template>
 <script>
+import gsap from "gsap";
 export default {
   name: "NavComponent",
   data() {
@@ -38,6 +44,25 @@ export default {
     };
   },
   methods: {
+    openModal() {
+      this.modalOpen = true;
+      document.body.classList.add("no-scroll");
+    },
+    closeModal() {
+      this.modalOpen = false;
+      document.body.classList.remove("no-scroll");
+    },
+    navBeforeAppear(el) {
+      el.style.transform = "translateY(-60px)";
+      el.style.opacity = 0;
+    },
+    navAppear(el) {
+      gsap.to(el, {
+        duration: 1.5,
+        y: 0,
+        opacity: 1,
+      });
+    },
     navOnTop() {
       var prevScrollpos = window.pageYOffset;
       window.onscroll = function () {
@@ -57,6 +82,10 @@ export default {
 };
 </script>
 <style scoped>
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+}
 ul {
   list-style-type: none;
   display: flex;
@@ -85,6 +114,14 @@ ion-icon {
 }
 .mobile-menu {
   display: none;
+}
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+.modal-leave-active,
+.modal-enter-active {
+  transition: all 1s ease;
 }
 
 @keyframes shake {
@@ -123,8 +160,8 @@ ion-icon {
   }
 }
 #navbar {
-  transition: top 0.3s;
-  z-index: 10000;
+  transition: top 0.8s;
+  z-index: 10;
   background: rgb(36, 36, 36);
   background: linear-gradient(
     180deg,
@@ -140,6 +177,12 @@ nav {
   justify-content: space-between;
   position: fixed;
   width: 100%;
+}
+.hello-enter-from {
+  opacity: 0;
+}
+.hello-enter-active {
+  transition: all 2s ease;
 }
 
 @media screen and (max-width: 730px) {
@@ -159,19 +202,25 @@ nav {
     height: 100%;
     width: 100%;
     z-index: 10001;
-    background-color: #242424;
+    background: rgba(84, 84, 84, 0.552);
+    box-shadow: 0 8px 32px 0 rgba(37, 38, 49, 0.73);
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
   }
   .modal-list {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100%;
     width: 100%;
-    gap: 1rem;
-    margin-top: 50px;
+    gap: 2.5rem;
   }
   .modal-list li {
     margin: 0;
+  }
+  .modal-list li a {
+    font-size: 2rem;
   }
   .close-btn {
     position: fixed;

@@ -13,8 +13,9 @@
       <span class="hoverable">m</span>
       <span class="hoverable">o</span>
     </h2>
-
-    <h1>Felipe Carvalho,</h1>
+    <Transition appear @appear="typeWrite">
+      <h1 ref="name" class="main-title">Felipe Carvalho,</h1>
+    </Transition>
 
     <h2>
       <span class="hoverable">s</span>
@@ -45,6 +46,19 @@
 <script>
 export default {
   name: "HelloComponent",
+  methods: {
+    typeWrite() {
+      const titleText = this.$refs.name.innerHTML.split("");
+      this.$refs.name.innerHTML = " ";
+      setTimeout(() => {
+        titleText.forEach((letra, i) => {
+          setTimeout(() => {
+            this.$refs.name.innerHTML += letra;
+          }, 180 * i);
+        });
+      }, 600);
+    },
+  },
 };
 </script>
 
@@ -56,11 +70,13 @@ h2 {
 
 h2 {
   font-size: 2.5rem;
+  font-weight: 200;
   letter-spacing: 5px;
   color: white;
 }
 h1 {
-  font-size: 5.5rem;
+  font-weight: 400;
+  font-size: 5.2rem;
   letter-spacing: 10px;
   color: #4cd7a9;
 }
@@ -72,12 +88,28 @@ h1 {
   margin: 0 20%;
   padding-bottom: 190px;
 }
+.main-title:after {
+  content: "|";
+  margin-left: 5px;
+  opacity: 1;
+  color: #fff;
+  animation: pisca 0.7s infinite;
+}
 ion-icon {
   font-size: 40px;
   position: absolute;
   bottom: 0;
   left: 50%;
   color: gray;
+}
+@keyframes pisca {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 @media screen and (max-width: 820px) and (min-width: 481px) {
   .container {

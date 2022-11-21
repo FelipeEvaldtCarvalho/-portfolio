@@ -19,14 +19,50 @@
     </div>
     <div class="logos">
       <div class="rowlogos">
-        <img src="imgs/html.png" alt="html" height="80" />
-        <img src="imgs/css.png" alt="css" height="80" />
-        <img src="imgs/js.png" alt="javascript" height="80" />
+        <img
+          src="imgs/html.png"
+          alt="html"
+          height="80"
+          @mouseover="mouseIn"
+          @mouseout="mouseOut"
+        />
+        <img
+          src="imgs/css.png"
+          alt="css"
+          height="80"
+          @mouseover="mouseIn"
+          @mouseout="mouseOut"
+        />
+        <img
+          src="imgs/js.png"
+          alt="javascript"
+          height="80"
+          @mouseover="mouseIn"
+          @mouseout="mouseOut"
+        />
       </div>
       <div class="rowlogos">
-        <img src="imgs/vue.png" alt="vuejs" height="80" />
-        <img src="imgs/php.png" alt="php" height="80" />
-        <img src="imgs/laravel.png" alt="laravel" height="80" />
+        <img
+          src="imgs/vue.png"
+          alt="vuejs"
+          height="80"
+          @mouseover="mouseIn"
+          @mouseout="mouseOut"
+        />
+        <img
+          src="imgs/php.png"
+          alt="php"
+          height="80"
+          @mouseover="mouseIn"
+          @mouseout="mouseOut"
+        />
+        <img
+          src="imgs/laravel.png"
+          alt="laravel"
+          height="80"
+          @mouseover="mouseIn"
+          @mouseout="mouseOut"
+        />
       </div>
     </div>
   </section>
@@ -34,7 +70,7 @@
 
 <script>
 import axios from "axios";
-
+import gsap from "gsap";
 export default {
   name: "AboutComponent",
   data() {
@@ -46,6 +82,18 @@ export default {
     getJson() {
       axios.get("/text/text.json").then((response) => {
         this.about = response.data.about;
+      });
+    },
+    mouseIn(el) {
+      gsap.to(el.target, {
+        scale: 1.2,
+        duration: 0.5,
+      });
+    },
+    mouseOut(el) {
+      gsap.to(el.target, {
+        scale: 1,
+        duration: 0.5,
       });
     },
   },
@@ -63,13 +111,15 @@ export default {
 }
 p {
   margin: 15px;
-  font-family: "Play", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 25px;
   color: white;
   line-height: 1.9rem;
+  font-weight: 200;
 }
 h1 {
   font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   color: #4cd7a9;
   font-size: 30px;
 }
@@ -171,9 +221,9 @@ section {
   top: -270px;
   right: -30px;
 }
-.rowlogos img:hover {
-  filter: grayscale(1);
-}
+/*.rowlogos img:hover {
+  transform: scale(1.1);
+}*/
 @media screen and (max-width: 950px) and (min-width: 731px) {
   section {
     margin: 25% 12%;
