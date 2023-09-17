@@ -14,7 +14,7 @@
         </div>
       </div>
       <lottie-player
-        src="https://lottie.host/cae07506-5c71-4179-9145-02970691ef1c/VfYcfN8HEc.json"
+        src="/imgs/rocket.json"
         background="transparent"
         speed="1"
         loop
